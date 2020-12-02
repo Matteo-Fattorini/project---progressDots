@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <!-- VUE-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script defer src="js/main.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="circle-container">
+		<div class="progress-bar"></div>
+		<div :style="{width:computedWidth}" class="true-progress"></div>
+        <div :key="i" ref ="circles"  v-for= "(n,i) in example" class="circle" :class="{active: i <= counter}">{{i+1}}</div>
+      </div>
+
+      <div class="buttons">
+        <button @click = "moveBack" :disabled ="counter ==0">Prev</button>
+        <button @click = "moveOn" :disabled ="counter == maxLen-1">Next</button>
+      </div>
+    </div>
+  </body>
+</html>
